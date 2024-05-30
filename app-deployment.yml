@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+  labels:
+    app: deno-mongodb-master_app
+spec: # deployment specification 
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deno-mongodb-master_app
+  template:
+    metadata:
+      labels:
+        app: deno-mongodb-master_app
+    spec: # pod specification
+      containers:
+      - name: deno-mongodb-master_app_1
+        image: deno-mongodb-master_app
+        ports:
+        - containerPort: 8080
